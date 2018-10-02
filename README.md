@@ -21,3 +21,6 @@ genes and TUs for further differentially expression analysis.
 
 ## Quick Start
 Please check vignette.
+
+## Demo
+![alt text](https://github.com/s18692001/rSeqTU/blob/master/IGV_TU_demo.png)
