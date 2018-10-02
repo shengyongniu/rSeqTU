@@ -69,4 +69,4 @@ gen_cTU_data("Ri.NA", "test", genome_gff, genomeFile)
 TU_SVM("SimulatedPositiveTUMatrix.txt", "SimulatedNegativeTUMatrix.txt", "TargetPositiveTUMatrix.txt", "TargetNegativeTUMatrix.txt",
       "Ri.NA", genome_gff, "Ri", "NC_000913")
 
-
+## User can use IGV tool to get visualization from output bedgraph file and mapped bam files.
