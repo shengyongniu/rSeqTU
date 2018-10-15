@@ -28,45 +28,12 @@ asSam(bam_Ri.files, destination=sub("\\.bam", "", bam_Ri.files))
 sam_M9.file <- "M9Enrich_S1_L001_R1_001_1241d6627572d.sam"
 sam_Ri.file <- "RiEnrich_S3_L001_R1_001_1241d2758dc5e.sam"
 
-
-qQCReport(proj, pdfFilename="qc_report10.pdf")
+qQCReport(proj, pdfFilename="qc_report.pdf")
 alignmentStats(proj)
 
-
-# Extract quality scores
-qs <- qualityScores(filename="SRR400619.fastq",nreads=100)
-# Check dimension of qs
-dim(qs)
-# Check first few elements of qs with head
-head(qs)
-boxplot(qs)
-
-## FeatureCounts
-## non-strand speciifc (duplicate column one and col two // and strand specific
-fc_M9 <- featureCounts(bam_M9.files, annot.ext = "mocked.GTF", isGTFAnnotationFile=TRUE,
-                       GTF.featureType  = "CDS", GTF.attrType="position_ID", countMultiMappingReads = TRUE, strandSpecific = 0)
-fc_Ri <- featureCounts(bam.files, annot.ext = "mocked.GTF", isGTFAnnotationFile=TRUE,
-                       GTF.featureType  = "CDS", GTF.attrType="position_ID", countMultiMappingReads = TRUE, strandSpecific = 0)
-
-# See what slots are stored in fc
-names(fc)
-## Take a look at the featurecounts stats
-fc$stat
-## Take a look at the dimensions to see the number of genes
-dim(fc$counts)
-## Take a look at the first 6 lines
-head(fc$counts)
-
-## Take a look at the first 6 lines
-head(fc$counts)
-head(fc$annotation)
-
-save(fc, "fc.RData")
-
-generate_GTF_training(4641628)
 gen_NA("Ecoli_alignment.BAM", "NC_000913.3", "Ecoli")
 gen_cTU_data("Ri.NA", "test", genome_gff, genomeFile)
 TU_SVM("SimulatedPositiveTUMatrix.txt", "SimulatedNegativeTUMatrix.txt", "TargetPositiveTUMatrix.txt", "TargetNegativeTUMatrix.txt",
       "Ri.NA", genome_gff, "Ri", "NC_000913")
 
-## User can use IGV tool to get visualization from output bedgraph file and mapped bam files.
+
