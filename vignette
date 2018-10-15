@@ -13,7 +13,6 @@ library(mlbench)
 library(Gviz)
 library(GenomicRanges)
 
-
 setwd("your_working_dir")
 sampleFile <- "sampleFile.txt"
 genomeFile <- "GCF_000005845.2_ASM584v2_genomic.fna"
@@ -21,19 +20,16 @@ genome_gff <- "GCF_000005845.2_ASM584v2_genomic.gff"
 proj <- qAlign(sampleFile, genomeFile, paired="fr", clObj = makeCluster(detectCores()))
 
 bam_M9.files <- "M9Enrich_S1_L001_R1_001_1241d6627572d.bam"
-bam_Ri.files <- "RiEnrich_S3_L001_R1_001_1241d2758dc5e.bam"
 
 asSam(bam_M9.files, destination=sub("\\.bam", "", bam_M9.files))
-asSam(bam_Ri.files, destination=sub("\\.bam", "", bam_Ri.files))
 sam_M9.file <- "M9Enrich_S1_L001_R1_001_1241d6627572d.sam"
-sam_Ri.file <- "RiEnrich_S3_L001_R1_001_1241d2758dc5e.sam"
 
 qQCReport(proj, pdfFilename="qc_report.pdf")
 alignmentStats(proj)
 
 gen_NA("Ecoli_alignment.BAM", "NC_000913.3", "Ecoli")
-gen_cTU_data("Ri.NA", "test", genome_gff, genomeFile)
+gen_cTU_data("M9.NA", "test", genome_gff, genomeFile)
 TU_SVM("SimulatedPositiveTUMatrix.txt", "SimulatedNegativeTUMatrix.txt", "TargetPositiveTUMatrix.txt", "TargetNegativeTUMatrix.txt",
-      "Ri.NA", genome_gff, "Ri", "NC_000913")
+      "M9.NA", genome_gff, "M9", "NC_000913")
 
 
