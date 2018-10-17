@@ -1,3 +1,6 @@
+library(rSeqTU)
+library(QuasR)
+library(Rsamtools)
 # Set up your working directory
 setwd("your_working_dir")
 
