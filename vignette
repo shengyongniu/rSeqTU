@@ -1,18 +1,3 @@
-library(Rsubread)
-library(Rsamtools)
-library(QuasR)
-library(e1071)
-library(seqinr)
-library(grid)
-library(gridBase)
-library(ggplot2)
-library(reshape2)
-library(plyr)
-library(caret)
-library(mlbench)
-library(Gviz)
-library(GenomicRanges)
-
 # Set up your working directory
 setwd("your_working_dir")
 
