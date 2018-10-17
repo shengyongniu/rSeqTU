@@ -25,6 +25,9 @@ TU_SVM(positive_training, negative_training, positive_strand_testing,
 
 \item{genome_name}{The file of referecne genome}
 }
+\value{
+TU prediction results
+}
 \description{
 Using Support Vector Machine to train and generate TU prediction results
 }

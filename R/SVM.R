@@ -1,4 +1,6 @@
 #' Using Support Vector Machine to train and generate TU prediction results
+#' @import Rsubread Rsamtools QuasR e1071 seqinr grid gridBase ggplot2 reshape2
+#' @import plyr caret mlbench Gviz GenomicRanges
 #' @param positive_training The file of positive training dataset.
 #' @param negative_training The file of negative training dataset.
 #' @param positive_strand_testing The file of positive strand testing dataset.
@@ -7,6 +9,7 @@
 #' @param file_gff The .gff file of reference genome
 #' @param output_prefix The prefix of output file name
 #' @param genome_name The file of referecne genome
+#' @return TU prediction results
 #' @export
 
 
@@ -47,6 +50,46 @@ summary(train_data)
 intrain <- createDataPartition(y = train_data$target_variable, p= 0.7, list = FALSE)
 training <- train_data[intrain,]
 testing <- train_data[-intrain,]
+#
+# ### Feature Selection
+#
+# # prepare training scheme
+# control <- trainControl(method="repeatedcv", number=10, repeats=3)
+# # train the model
+# model <- train(target_variable~., data=train_data, method="lvq", preProcess="scale", trControl=control)
+# # estimate variable importance
+# importance <- varImp(model, scale=FALSE)
+# # summarize importance
+# print(importance)
+# # plot importance
+# plot(importance)
+#
+#
+# # define the control using a random forest selection function
+# control <- rfeControl(functions=rfFuncs, method="cv", number=10)
+# # run the RFE algorithm
+# results <- rfe(train_data[,1:17], train_data[,18], sizes=c(1:17), rfeControl=control)
+# # summarize the results
+# print(results)
+# # list the chosen features
+# predictors(results)
+# # plot the results
+# plot(results, type=c("g", "o"))
+#
+#
+# featurePlot(x = train_data[, 1:17],
+#             y = train_data$target_variable ,
+#             plot = "box",
+#             strip=strip.custom(par.strip.text=list(cex=.7)),
+#             scales = list(x = list(relation="free"),
+#                           y = list(relation="free")))
+#
+# featurePlot(x = train_data[, 1:17],
+#             y = train_data$target_variable,
+#             plot = "density",
+#             strip=strip.custom(par.strip.text=list(cex=.7)),
+#             scales = list(x = list(relation="free"),
+#                           y = list(relation="free")))
 
 # Training the Linear SVM model
 trctrl <- trainControl(method = "repeatedcv", number = 10, repeats = 3)

@@ -10,6 +10,9 @@ generate_GTF_training(genomelength)
 \arguments{
 \item{genomelength}{The length of genome}
 }
+\value{
+GTF file for training
+}
 \description{
 Generate GTF file for training.
 It will generate a GTF (mocked.GTF) for training in the working directory.

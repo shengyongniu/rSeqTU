@@ -1,6 +1,9 @@
 #' Generate GTF file for training.
 #' It will generate a GTF (mocked.GTF) for training in the working directory.
 #' @param genomelength The length of genome
+#' @import Rsubread Rsamtools QuasR e1071 seqinr grid gridBase ggplot2 reshape2
+#' @import plyr caret mlbench Gviz GenomicRanges
+#' @return GTF file for training
 #' @export
 
 generate_GTF_training <- function(genomelength){

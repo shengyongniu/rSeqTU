@@ -1,8 +1,10 @@
 #' Generation of .NA file for data training
-#'
+#' @import Rsubread Rsamtools QuasR e1071 seqinr grid gridBase ggplot2 reshape2
+#' @import plyr caret mlbench Gviz GenomicRanges
 #' @param bamfile The result of alignment in bam format.
 #' @param ref_genome_name The file name of reference genome such as NC_000913.3
 #' @param output_prefix The prefix of output file name.
+#' @return .NA file for data training
 #' @export
 
 gen_NA <- function(bamfile, ref_genome_name, output_prefix){

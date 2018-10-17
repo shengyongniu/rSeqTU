@@ -15,6 +15,9 @@ gen_cTU_data(file_RNAseqSignals, fileNamePrefix, file_gff, genomeFile)
 
 \item{genomeFile}{Reference genome sequence file}
 }
+\value{
+positive and negative TU training datasets
+}
 \description{
 Generate positive and negative TU training datasets
 }

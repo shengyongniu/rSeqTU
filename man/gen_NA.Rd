@@ -13,6 +13,9 @@ gen_NA(bamfile, ref_genome_name, output_prefix)
 
 \item{output_prefix}{The prefix of output file name.}
 }
+\value{
+.NA file for data training
+}
 \description{
 Generation of .NA file for data training
 }

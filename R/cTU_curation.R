@@ -1,9 +1,11 @@
 #' Generate positive and negative TU training datasets
-#'
+#' @import Rsubread Rsamtools QuasR e1071 seqinr grid gridBase ggplot2 reshape2
+#' @import plyr caret mlbench Gviz GenomicRanges
 #' @param file_RNAseqSignals The file of .NA file
 #' @param fileNamePrefix The prefix of output file name
 #' @param file_gff The .gff file of reference genome
 #' @param genomeFile Reference genome sequence file
+#' @return positive and negative TU training datasets
 #' @export
 
 gen_cTU_data <- function(file_RNAseqSignals, fileNamePrefix, file_gff, genomeFile){
