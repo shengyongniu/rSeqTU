@@ -9,7 +9,7 @@
 #' @export
 
 gen_cTU_data <- function(file_RNAseqSignals, fileNamePrefix, file_gff, genomeFile){
-source("seqTU_functions.r")
+source("seqTU_functions.R")
 vplayout <- function(x, y) viewport(layout.pos.row = x, layout.pos.col = y)
 
 # set some global variables

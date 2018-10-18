@@ -13,9 +13,6 @@ proj <- qAlign(sampleFile, genomeFile, paired="fr", clObj = makeCluster(detectCo
 # Set up file paths for bam and sam files
 bam_M9.files <- "M9Enrich_S1_L001_R1_001_1241d6627572d.bam"
 
-asSam(bam_M9.files, destination=sub("\\.bam", "", bam_M9.files))
-sam_M9.file <- "M9Enrich_S1_L001_R1_001_1241d6627572d.sam"
-
 # get Quality Check report and statistics
 qQCReport(proj, pdfFilename="qc_report.pdf")
 alignmentStats(proj)

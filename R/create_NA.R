@@ -23,7 +23,7 @@ param <- ScanBamParam(which=GRanges(ref_genome_name,
 p_param <- PileupParam(min_mapq = 15, min_base_quality = 10)
 pileup(bf, scanBamParam=param, pileupParam = p_param)
 res <- pileup(bf, scanBamParam=param, pileupParam=p_param)
-plot(res$nucleotide, res$count ,pch=".", log="y", ylab="count (log scale)")
+#plot(res$nucleotide, res$count ,pch=".", log="y", ylab="count (log scale)")
 
 df <- dcast(res, seqnames+pos+strand ~ nucleotide, value.var="count", fun.aggregate=sum)
 df_pos <- df[which(df$strand == "+"), ]
