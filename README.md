@@ -14,7 +14,7 @@ interactive tables for customized downstream analysis. rSeqTU also output read c
 genes and TUs for further differentially expression analysis.
 
 ### Result Demo
-<img src="IGV_TU_demo.png" width="600" />
+<img src="IGV_TU_demo.png" width="800" />
 
 ### Quick Start
 
