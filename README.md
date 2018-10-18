@@ -13,12 +13,12 @@ model training, and TU prediction. Moreover, rSeqTU presents results in graphica
 interactive tables for customized downstream analysis. rSeqTU also output read count matrix of both
 genes and TUs for further differentially expression analysis.
 
-## ResultDemo
-<img src="IGV_TU_demo.png" width="200" />
+## Result Demo
+<img src="IGV_TU_demo.png" width="600" />
 
 ## Quick Start
 
-#Install package
+# Install package
 ```R
 library(devtools)
 install_github("s18692001/rSeqTU")
