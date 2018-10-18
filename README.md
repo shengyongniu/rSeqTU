@@ -7,14 +7,12 @@ efficiently perform TU identification on their machine and provide a more accura
 develop an R package, named rSeqTU. rSeqTU R package can automatically select essential TU features
 through a random forest algorithm in a machine learning framework. Besides, rSeqTU performs nearly
 98% accuracy in most of our testing TU cases, e.g., public RNA-Seq datasets of E. coli. Users will be able to 
-install the rSeqTU package from Bioconductor and input their customized RNA-Seq dataset to conduct
+install the rSeqTU package from Github and input their customized RNA-Seq dataset to conduct
 de-multiplexing, quality controlling, reads alignment, random-forest-based feature selection, prediction
-model training, and TU prediction. Moreover, rSeqTU presents results in graphical visualizations and
-interactive tables for customized downstream analysis. rSeqTU also output read count matrix of both
-genes and TUs for further differentially expression analysis.
+model training, and TU prediction. Moreover, rSeqTU presents results in interactive visualizations for customized downstream analysis. rSeqTU also output read count matrix of both genes and TUs for further differentially expression analysis.
 
-# Result Demo
-<img src="IGV_TU_demo.png" width="1200" />
+# Workflow
+<img src="https://github.com/s18692001/rSeqTU/blob/master/rSeqTU_figures.001.jpeg" width="1200" />
 
 # Quick Start
 
@@ -24,6 +22,10 @@ library(devtools)
 install_github("s18692001/rSeqTU")
 library(rSeqTU)
 ```
+
+### Download Datasets
+
+Please download the sample datasets from this [link](http://bmbl.sdstate.edu/downloadFiles/seqtu_data/).
 
 ### Alignment
 ```R
@@ -59,6 +61,7 @@ Genomic alignments have been created successfully
 qQCReport(proj, pdfFilename="qc_report_test.pdf")
 alignmentStats(proj)
 ```
+
 <img src="QC/QC1.png" width="800" />
 <img src="QC/QC2.png" width="800" />
 <img src="QC/QC3.png" width="800" />
@@ -68,6 +71,10 @@ alignmentStats(proj)
 <img src="QC/QC7.png" width="800" />
 <img src="QC/QC8.png" width="800" />
 
+```
+                 seqlength  mapped unmapped
+M9_Enrich:genome   4641652 9043282  4574532
+```
 
 ### .NA file generation
 ```R
