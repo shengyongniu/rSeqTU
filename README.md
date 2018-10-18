@@ -18,11 +18,51 @@ genes and TUs for further differentially expression analysis.
 
 # Quick Start
 
-## Install package
+### Install package
 ```R
 library(devtools)
 install_github("s18692001/rSeqTU")
+library(rSeqTU)
 ```
+
+### Alignment
+```R
+library(QuasR)
+library(Rsamtools)
+# Set up your working directory
+setwd("working_dir")
+
+# Set up parameters of file paths for alignment
+sampleFile <- "sampleFile.txt"
+genomeFile <- "GCF_000005845.2_ASM584v2_genomic.fna"
+genome_gff <- "GCF_000005845.2_ASM584v2_genomic.gff"
+proj <- qAlign(sampleFile, genomeFile, paired="fr", clObj = makeCluster(detectCores()))
+```
+
+### Quality Check
+```R
+# get Quality Check report and statistics
+qQCReport(proj, pdfFilename="qc_report_test.pdf")
+alignmentStats(proj)
+```
+
+### .NA file generation
+```R
+# Generate .NA file for constructing cTU
+gen_NA("M9Enrich_S2_L001_R1_001_1ccc063fe8630.bam", "NC_000913.3", "M9")
+gen_cTU_data("M9.NA", "test", genome_gff, genomeFile)
+```
+
+### SVM modeling and prediction
+```R
+# Train model and generate prediction result in .bedgraph format
+TU_SVM("SimulatedPositiveTUMatrix.txt", "SimulatedNegativeTUMatrix.txt", "TargetPositiveTUMatrix.txt", "TargetNegativeTUMatrix.txt","M9.NA", genome_gff, "M9", "NC_000913")
+```
+
+### Visualization in IGV (Import the .bedgraph, reference genome and annotation files)
+<img src="IGV_TU_demo.png" width="1200" />
+
+
 
 
 

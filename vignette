@@ -12,15 +12,12 @@ genomeFile <- "GCF_000005845.2_ASM584v2_genomic.fna"
 genome_gff <- "GCF_000005845.2_ASM584v2_genomic.gff"
 proj <- qAlign(sampleFile, genomeFile, paired="fr", clObj = makeCluster(detectCores()))
 
-# Set up file paths for bam and sam files
-bam_M9.files <- "M9Enrich_S2_L001_R1_001_1ccc063fe8630.bam"
-
 # get Quality Check report and statistics
 qQCReport(proj, pdfFilename="qc_report_test.pdf")
 alignmentStats(proj)
 
 # Generate .NA file for constructing cTU
-gen_NA(bam_M9.files, "NC_000913.3", "M9")
+gen_NA("M9Enrich_S2_L001_R1_001_1ccc063fe8630.bam", "NC_000913.3", "M9")
 gen_cTU_data("M9.NA", "test", genome_gff, genomeFile)
 
 # Train model and generate prediction result in .bedgraph format
