@@ -39,12 +39,29 @@ genome_gff <- "GCF_000005845.2_ASM584v2_genomic.gff"
 proj <- qAlign(sampleFile, genomeFile, paired="fr", clObj = makeCluster(detectCores()))
 ```
 
+```
+    create 1 genomic alignment(s)
+will start in ..9s..8s..7s..6s..5s..4s..3s..2s..1s
+Testing the compute nodes...OK
+Loading QuasR on the compute nodes...OK
+Available cores:
+nodeNames
+  syniu 
+     16 
+Performing genomic alignments for 1 samples. See progress in the log file:
+local/QuasR_log_1ccc01b031f84.txt
+Genomic alignments have been created successfully
+```
+
 ### Quality Check
 ```R
 # get Quality Check report and statistics
 qQCReport(proj, pdfFilename="qc_report_test.pdf")
 alignmentStats(proj)
 ```
+
+
+
 
 ### .NA file generation
 ```R
