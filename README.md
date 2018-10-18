@@ -1,4 +1,4 @@
-## Introduction
+### Introduction
 A transcriptional unit (TU) is composed of one or multiple consecutive genes on the same strand of a
 bacterial genome. The genes within a TU are transcribed into a single mRNA to respond to specific
 growth conditions, and the TU are regulated by one promoter. To delineate the transcriptional regulatory
@@ -13,10 +13,10 @@ model training, and TU prediction. Moreover, rSeqTU presents results in graphica
 interactive tables for customized downstream analysis. rSeqTU also output read count matrix of both
 genes and TUs for further differentially expression analysis.
 
-## Result Demo
+### Result Demo
 <img src="IGV_TU_demo.png" width="600" />
 
-## Quick Start
+### Quick Start
 
 # Install package
 ```R
