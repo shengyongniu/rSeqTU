@@ -1,6 +1,3 @@
-# rSeqTU
-An R package for prediction of Transcription Unit in Bacteria
-
 # rSeqTU - a machine learning based R package for identification of bacterial transcriptional units
 These R scripts will be wrapped up as an R package. Users will be able to install this package from Bioconductor.
 
@@ -23,4 +20,4 @@ genes and TUs for further differentially expression analysis.
 Please check vignette.
 
 ## Demo
-![alt text](https://github.com/s18692001/rSeqTU/blob/master/IGV_TU_demo.png)
+[[https://github.com/s18692001/rSeqTU/blob/master/IGV_TU_demo.png]]
