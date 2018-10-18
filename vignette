@@ -1,8 +1,10 @@
+library(devtools)
+install_github("s18692001/rSeqTU")
 library(rSeqTU)
 library(QuasR)
 library(Rsamtools)
 # Set up your working directory
-setwd("your_working_dir")
+setwd("working_dir")
 
 # Set up parameters of file paths for alignment
 sampleFile <- "sampleFile.txt"
@@ -11,18 +13,15 @@ genome_gff <- "GCF_000005845.2_ASM584v2_genomic.gff"
 proj <- qAlign(sampleFile, genomeFile, paired="fr", clObj = makeCluster(detectCores()))
 
 # Set up file paths for bam and sam files
-bam_M9.files <- "M9Enrich_S1_L001_R1_001_1241d6627572d.bam"
+bam_M9.files <- "M9Enrich_S2_L001_R1_001_1ccc063fe8630.bam"
 
 # get Quality Check report and statistics
-qQCReport(proj, pdfFilename="qc_report.pdf")
+qQCReport(proj, pdfFilename="qc_report_test.pdf")
 alignmentStats(proj)
 
 # Generate .NA file for constructing cTU
-gen_NA("Ecoli_alignment.BAM", "NC_000913.3", "Ecoli")
+gen_NA(bam_M9.files, "NC_000913.3", "M9")
 gen_cTU_data("M9.NA", "test", genome_gff, genomeFile)
 
 # Train model and generate prediction result in .bedgraph format
-TU_SVM("SimulatedPositiveTUMatrix.txt", "SimulatedNegativeTUMatrix.txt", "TargetPositiveTUMatrix.txt", "TargetNegativeTUMatrix.txt",
-      "M9.NA", genome_gff, "M9", "NC_000913")
-
-
+TU_SVM("SimulatedPositiveTUMatrix.txt", "SimulatedNegativeTUMatrix.txt", "TargetPositiveTUMatrix.txt", "TargetNegativeTUMatrix.txt","M9.NA", genome_gff, "M9", "NC_000913")

@@ -1,5 +1,4 @@
 FileName1	FileName2	SampleName
 M9Enrich_S1_L001_R1_001.fastq.gz	M9Enrich_S1_L001_R2_001.fastq.gz	M9_Enrich
-RiEnrich_S3_L001_R1_001.fastq.gz	RiEnrich_S3_L001_R2_001.fastq.gz	Ri_Enrich
 
 
