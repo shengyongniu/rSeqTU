@@ -20,4 +20,4 @@ genes and TUs for further differentially expression analysis.
 Please check vignette.
 
 ## Demo
-<img src="https://github.com/s18692001/rSeqTU/blob/master/IGV_TU_demo.png" alt="hi" class="inline"/>
+<img src="https://github.com/s18692001/rSeqTU/blob/master/IGV_TU_demo.png" class="inline"/>
