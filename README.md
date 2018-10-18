@@ -12,7 +12,7 @@ de-multiplexing, quality controlling, reads alignment, random-forest-based featu
 model training, and TU prediction. Moreover, rSeqTU presents results in interactive visualizations for customized downstream analysis. rSeqTU also output read count matrix of both genes and TUs for further differentially expression analysis.
 
 # Workflow
-<img src="https://github.com/s18692001/rSeqTU/blob/master/rSeqTU_figures.001.jpeg" width="1200" />
+<img src="rSeqTU_figures.001.jpeg" width="1000" />
 
 # Quick Start
 
