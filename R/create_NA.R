@@ -12,9 +12,9 @@ gen_NA <- function(bamfile, ref_genome_name, output_prefix){
 # load bam file
 #bamfile <- "Ecoli_alignment.BAM"
 #bf <- BamFile(bamfile)
-sortBam(file = bamfile, paste(output_prefix, ".sorted.bam", sep=""))
-indexBam(file = paste(output_prefix, ".sorted.bam", sep=""))
-bamfile <- paste(output_prefix, ".sorted.bam", sep="")
+#sortBam(file = bamfile, paste(output_prefix, ".sorted.bam", sep=""))
+#indexBam(file = paste(output_prefix, ".sorted.bam", sep=""))
+#bamfile <- paste(output_prefix, ".sorted.bam", sep="")
 bf <- BamFile(bamfile)
 seqlengths(bf)
 param <- ScanBamParam(which=GRanges(ref_genome_name,
