@@ -86,7 +86,7 @@ alignmentStats(proj)
 M9_Enrich:genome   4641652 9043282  4574532
 ```
 
-### Generate sum of the mapped read depths at each reference base position "(.NA file)
+### Generate sum of the mapped read depths at each reference base position (.NA file)
 
 
 ```R
