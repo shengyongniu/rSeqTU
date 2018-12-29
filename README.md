@@ -12,15 +12,11 @@ de-multiplexing, quality controlling, reads alignment, random-forest-based featu
 model training, and TU prediction. Moreover, rSeqTU presents results in interactive visualizations for customized downstream analysis. rSeqTU also output read count matrix of both genes and TUs for further differentially expression analysis.
 
 # Enviroment
-The rSeqTU R package has been tested on Mac and Linus OS. 
+The rSeqTU R package has been tested on Mac and Linux OS. 
 
 # Workflow
 
-* [Wen-Chi:]Please share an ediable flowchart to allow three of us to make edits. We have decided to remove the step of checking formats.
-
 <img src="rSeqTU_figures.001.jpeg" width="1000" />
-
-* [Wen-Chi:] Simon please add some texts to highlight the key steps. The texts should serve like a figure legend.   
 
 # Quick Start
 
@@ -34,9 +30,8 @@ library(rSeqTU)
 ### Download Datasets
 
 Please download the sample datasets from this [link](http://bmbl.sdstate.edu/downloadFiles/seqtu_data/). 
-* [Wen-Chi:] We need to prepare a subset of the M9 Enrich data for the purpose of user testing.
 
-* [Wen-Chi:] Need to remind users to prepare necessary genome sequence (fasta) and other necessary genome annotation files.
+Notice: Please prepare genome sequence (fasta) and other necessary genome annotation files.
 
 
 ### Alignment
@@ -69,8 +64,6 @@ Genomic alignments have been created successfully
 
 ### Quality Check
 
-* [Wen-Chi:] I would suggest to split this section in to two parts, Qulity check and RNA-seq read mapping
-
 
 ```R
 # get Quality Check report and statistics
@@ -88,18 +81,13 @@ alignmentStats(proj)
 <img src="QC/QC8.png" width="800" />
 
 
-* [Wen-Chi:] Is the BAM file name used in the gen_NA function automatically generated? Do users need to name the BAM file somewhere at the beginning?
-
-
 ```
                  seqlength  mapped unmapped
 M9_Enrich:genome   4641652 9043282  4574532
 ```
 
-### .NA file generation
+### Generate sum of the mapped read depths at each reference base position "(.NA file)
 
-* [Wen-Chi:] We have a chance to convert the naming of "NA file" to how other people call it now. "sum of the mapped read depths at each reference base position" is what we refer to NA file. Let's make a better name for it. 
-** https://bedtools.readthedocs.io/en/latest/content/tools/genomecov.html
 
 ```R
 # Generate .NA file for constructing cTU
@@ -127,7 +115,6 @@ In this genome, there are
 
 
 ### SVM modeling and prediction
-* [Wen-Chi:] Simon, I remember I shared you the definition of each feature. Could you list the defitions of features here?
 
 ```R
 # Train model and generate prediction result in .bedgraph format
@@ -174,8 +161,8 @@ TU_SVM("SimulatedPositiveTUMatrix.txt", "SimulatedNegativeTUMatrix.txt", "Target
 ```
 
 ### Visualization in IGV (Import the .bedgraph, reference genome and annotation files)
+For tutorial of IGV, please check http://software.broadinstitute.org/software/igv/userguide
 
-* [Wen-Chi:] Need to add a link of IGV's tutorial to educate users how to load the necessary files into IGV. 
 
 <img src="IGV_TU_demo.png" width="1200" />
 
