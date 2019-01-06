@@ -513,7 +513,7 @@ SimulatedForwardTUMatrixGapLongest=data.frame()
 SimulatedForwardTUGeneFoldChange=NULL
 num=1
 for(i in 1:(nrow(AllForwardGenes))){
-  if ((AllForwardGenesExpressionMean[i] >= MinimumMeanExpressionValue) & (AllForwardGenesExpressionMedian[i] >= MinimumMedianExpressionValue) & (AllForwardGenesGapsProportion < MaximumGapProportionValue) & (AllForwardGenesGapsLongest[i] < 50)){
+  if ((AllForwardGenesExpressionMean[i] >= MinimumMeanExpressionValue) & (AllForwardGenesExpressionMedian[i] >= MinimumMedianExpressionValue) & (AllForwardGenesGapsProportion[i] < MaximumGapProportionValue) & (AllForwardGenesGapsLongest[i] < 50)){
     OneForwardSimulatedTU=GenerateOneSimulatedTU(AllForwardGenes, ForwardIntergenicRegionProportionNew, ForwardIntergenicRegionDeviate, i)
     for(j in 1:4){
       SimulatedForwardTUMatrixExpressionMean[num,j]=mean(GetRegionExp(SelectedRNAseqData, OneForwardSimulatedTU,j))
@@ -536,7 +536,8 @@ SimulatedReverseTUMatrixGapLongest=data.frame()
 SimulatedReverseTUGeneFoldChange=NULL
 num=1
 for(i in 1:(nrow(AllReverseGenes))){
-  if ((AllReverseGenesExpressionMean[i] >= MinimumMeanExpressionValue) & (AllReverseGenesExpressionMedian[i] >= MinimumMedianExpressionValue) & (AllReverseGenesGapsProportion < MaximumGapProportionValue) & (AllReverseGenesGapsLongest[i] < 50)){
+  if ((AllReverseGenesExpressionMean[i] >= MinimumMeanExpressionValue) & (AllReverseGenesExpressionMedian[i] >= MinimumMedianExpressionValue) & 
+      (AllReverseGenesGapsProportion[i] < MaximumGapProportionValue) & (AllReverseGenesGapsLongest[i] < 50)){
     OneReverseSimulatedTU=GenerateOneSimulatedTU(AllReverseGenes, ReverseIntergenicRegionProportionNew, ReverseIntergenicRegionDeviate, i)
     for(j in 1:4){
       SimulatedReverseTUMatrixExpressionMean[num,j]=mean(GetRegionExp(SelectedRNAseqData, OneReverseSimulatedTU,j))
@@ -705,4 +706,4 @@ write.table(TargetPositiveTUMatrix, file="TargetPositiveTUMatrix.txt", sep="\t",
 write.table(TargetNegativeTUMatrix, file="TargetNegativeTUMatrix.txt", sep="\t", row.names = FALSE)
 write.table(SimulatedNegativeTUMatrix, file="SimulatedNegativeTUMatrix.txt", sep="\t", row.names = FALSE)
 write.table(SimulatedPositiveTUMatrix, file="SimulatedPositiveTUMatrix.txt", sep="\t", row.names = FALSE)
-}
+
