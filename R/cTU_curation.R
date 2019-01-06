@@ -706,4 +706,4 @@ write.table(TargetPositiveTUMatrix, file="TargetPositiveTUMatrix.txt", sep="\t",
 write.table(TargetNegativeTUMatrix, file="TargetNegativeTUMatrix.txt", sep="\t", row.names = FALSE)
 write.table(SimulatedNegativeTUMatrix, file="SimulatedNegativeTUMatrix.txt", sep="\t", row.names = FALSE)
 write.table(SimulatedPositiveTUMatrix, file="SimulatedPositiveTUMatrix.txt", sep="\t", row.names = FALSE)
-
+}
