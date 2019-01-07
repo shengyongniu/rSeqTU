@@ -212,7 +212,7 @@ system(paste("mv ",FinalTUTableFileName,".clean ",FinalTUTableFileName,sep=""))
 ## Conversion of result table to gff format
 M9_result_table <- read.delim(FinalTUTableFileName, header = FALSE)
 M9 <- as.data.frame(M9_result_table)
-M9$val <- rep(1,nrow(M9))
+M9$val <- ifelse(M9$V4 == '+',yes = 1,no= -1)
 M9$seqname <- rep(genome_name, nrow(M9))
 head(M9)
 M9 <- M9[,c(8,2,3,7)]
