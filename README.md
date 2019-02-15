@@ -164,7 +164,7 @@ TU_SVM("SimulatedPositiveTUMatrix.txt", "SimulatedNegativeTUMatrix.txt", "Target
 For tutorial of IGV, please check http://software.broadinstitute.org/software/igv/userguide
 
 
-<img src="IGV_TU_demo.png" width="1200" />
+<img src="IGV_demo.png" width="1200" />
 
 ### Read counts matrix of gene and TU for downstream analysis such as differential expression analysis
 ```
