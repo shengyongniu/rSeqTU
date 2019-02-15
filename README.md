@@ -16,7 +16,7 @@ The rSeqTU R package has been tested on Mac and Linux OS.
 
 # Workflow
 
-<img src="rSeqTU_figures.001.jpg" width="1000" />
+<img src="rSeqTU_figures.001.png" width="1000" />
 
 # Quick Start
 
