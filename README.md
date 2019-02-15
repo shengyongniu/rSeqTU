@@ -71,14 +71,7 @@ qQCReport(proj, pdfFilename="qc_report_test.pdf")
 alignmentStats(proj)
 ```
 
-<img src="QC/QC1.png" width="800" />
-<img src="QC/QC2.png" width="800" />
-<img src="QC/QC3.png" width="800" />
-<img src="QC/QC4.png" width="800" />
-<img src="QC/QC5.png" width="800" />
-<img src="QC/QC6.png" width="800" />
-<img src="QC/QC7.png" width="800" />
-<img src="QC/QC8.png" width="800" />
+<img src="QC.png" width="800" />
 
 
 ```
