@@ -50,56 +50,59 @@ summary(train_data)
 intrain <- createDataPartition(y = train_data$target_variable, p= 0.7, list = FALSE)
 training <- train_data[intrain,]
 testing <- train_data[-intrain,]
-#
-# ### Feature Selection
-#
-# # prepare training scheme
-# control <- trainControl(method="repeatedcv", number=10, repeats=3)
-# # train the model
-# model <- train(target_variable~., data=train_data, method="lvq", preProcess="scale", trControl=control)
-# # estimate variable importance
-# importance <- varImp(model, scale=FALSE)
-# # summarize importance
-# print(importance)
-# # plot importance
-# plot(importance)
-#
-#
-# # define the control using a random forest selection function
-# control <- rfeControl(functions=rfFuncs, method="cv", number=10)
-# # run the RFE algorithm
-# results <- rfe(train_data[,1:17], train_data[,18], sizes=c(1:17), rfeControl=control)
-# # summarize the results
-# print(results)
-# # list the chosen features
-# predictors(results)
-# # plot the results
-# plot(results, type=c("g", "o"))
-#
-#
-# featurePlot(x = train_data[, 1:17],
-#             y = train_data$target_variable ,
-#             plot = "box",
-#             strip=strip.custom(par.strip.text=list(cex=.7)),
-#             scales = list(x = list(relation="free"),
-#                           y = list(relation="free")))
-#
-# featurePlot(x = train_data[, 1:17],
-#             y = train_data$target_variable,
-#             plot = "density",
-#             strip=strip.custom(par.strip.text=list(cex=.7)),
-#             scales = list(x = list(relation="free"),
-#                           y = list(relation="free")))
 
+  
+### Feature Selection
+
+# prepare training scheme
+control <- trainControl(method="repeatedcv", number=10, repeats=3)
+# train the model
+model <- train(target_variable~., data=train_data, method="lvq", preProcess="scale", trControl=control)
+# estimate variable importance
+importance <- varImp(model, scale=FALSE)
+# summarize importance
+print(importance)
+# plot importance
+plot(importance)
+imp_df = varImp(model)$importance
+selected_feature = rownames(imp_df[order(imp_df$X0, decreasing = TRUE),])[1:8]
+
+
+# define the control using a random forest selection function
+control <- rfeControl(functions=rfFuncs, method="cv", number=10)
+# run the RFE algorithm
+results <- rfe(train_data[,1:17], train_data[,18], sizes=c(1:17), rfeControl=control)
+# summarize the results
+print(results)
+# list the chosen features
+predictors(results)
+# plot the results
+plot(results, type=c("g", "o"))
+
+
+featurePlot(x = train_data[, 1:17],
+            y = train_data$target_variable ,
+            plot = "box",
+            strip=strip.custom(par.strip.text=list(cex=.7)),
+            scales = list(x = list(relation="free"),
+                          y = list(relation="free")))
+
+featurePlot(x = train_data[, 1:17],
+            y = train_data$target_variable,
+            plot = "density",
+            strip=strip.custom(par.strip.text=list(cex=.7)),
+            scales = list(x = list(relation="free"),
+                          y = list(relation="free")))
+
+f1 <- "target_variable"
 # Training the Linear SVM model
 trctrl <- trainControl(method = "repeatedcv", number = 10, repeats = 3)
-svm_Linear <- train(target_variable ~ GapLongest4 + GeneFoldChange + GapProportion4 + GapLongest3 +
-                      GapProportion2 + GapProportion1 + ExpressionSD2 + ExpressionMean1 + GapLongest1
-                    , method = "svmLinear", data = training,
+svm_Linear <- train(as.formula(paste(f1, f2, sep = "~")), method = "svmLinear", data = training,
                     trControl=trctrl,
                     preProcess = c("center", "scale"),
                     tuneLength = 10)
 svm_Linear
+  
 
 # Testing set prediction
 test_pred <- predict(svm_Linear, newdata = testing)
