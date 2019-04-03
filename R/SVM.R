@@ -34,7 +34,6 @@ neg_str_test_df <- as.data.frame(negative_strand_testing)
 pos_train_df$target_variable <- rep(1,nrow(pos_train_df))
 neg_train_df$target_variable <- rep(0,nrow(neg_train_df))
 train_data <- rbind(pos_train_df, neg_train_df)
-#real_data <- rbind(pos_str_test_df, neg_str_test_df)
 
 # Convert target variable to factors
 train_data[["target_variable"]] <- factor(train_data[["target_variable"]])
@@ -44,7 +43,6 @@ train_data <- train_data[complete.cases(train_data),]
 
 # Dataset summarized details
 summary(train_data)
-#summary(real_data)
 
 # Slice data into training and testing dataset
 intrain <- createDataPartition(y = train_data$target_variable, p= 0.7, list = FALSE)
