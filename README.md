@@ -14,6 +14,11 @@ model training, and TU prediction. Moreover, rSeqTU presents results in interact
 # Enviroment
 The rSeqTU R package has been tested on Mac and Linux OS. 
 
+# Prerequisite packages:
+
+GenomicRanges, Gviz, QuasR, Rsubread, caret, e1071, gridBase, mlbench, seqinr
+
+
 # Workflow
 
 <img src="rSeqTU_figures.001.png" width="1000" />
